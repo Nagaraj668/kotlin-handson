@@ -32,7 +32,7 @@ class NewsDataSource(
                     },
                     {
                         updateState(State.ERROR)
-                        setRetry(Action { loadInitial(params, callback) })
+                        setRetry { loadInitial(params, callback) }
                     }
                 )
         )

@@ -20,13 +20,10 @@ class ProductPagingSource : PagingSource<Int, Product>() {
             // Handle errors in this block and return LoadResult.Error if it is an
             // expected error (such as a network failure).
         }
-
+        throw Exception()
     }
 
     override fun getRefreshKey(state: PagingState<Int, Product>): Int? {
-        return state.anchorPosition?.let { anchorPosition ->
-            val anchorPage = state.closestPageToPosition(anchorPosition)
-            anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
-        }
+        TODO("Not yet implemented")
     }
 }
