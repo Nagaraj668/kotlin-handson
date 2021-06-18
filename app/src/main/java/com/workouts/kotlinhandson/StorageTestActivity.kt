@@ -2,6 +2,7 @@ package com.workouts.kotlinhandson
 
 import android.os.Bundle
 import android.os.Environment
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import java.io.File
@@ -27,17 +28,11 @@ class StorageTestActivity : AppCompatActivity() {
         println("primaryExternalStorage: ${externalStorageVolumes[0]}")
         println("secondaryExternalStorage: ${externalStorageVolumes[1]}")
 
-        println(Environment.getExternalStorageDirectory().absolutePath)
-        val sdcard = Environment.getExternalStorageDirectory()
-        val dir = File(sdcard.absolutePath + "/your-dir-name/")
-        dir.mkdir()
+        val string = JavaClass.test()
 
-        val file = File(dir, "My-File-Name.txt")
-        val data = "This is the content of my file"
-        val os: FileOutputStream = FileOutputStream(file).also {
-            it.write(data.toByteArray())
-        }
-        os.close()
+        AlertDialog.Builder(this)
+            .setMessage(string)
+            .create().show();
     }
 
     private fun isExternalStorageWritable(): Boolean {

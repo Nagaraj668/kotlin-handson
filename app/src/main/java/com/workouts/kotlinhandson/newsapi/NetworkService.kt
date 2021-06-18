@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface NetworkService {
 
-    @GET("search/users?q=python&access_token=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")
+    @GET("search/users?q=python")
     fun getNews(@Query("per_page") page: Int, @Query("page_size") pageSize: Int): Single<Response>
 
     companion object {
